@@ -1,0 +1,7 @@
+<resources>
+    <string name="app_name">438RestAPI</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="enter_username">Enter UserName</string>
+    <string name="enter_button">Enter</string>
+    <string name="new_Id">ID</string>
+</resources>
