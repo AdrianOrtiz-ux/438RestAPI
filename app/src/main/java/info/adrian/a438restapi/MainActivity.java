@@ -53,7 +53,7 @@ public class MainActivity extends AppCompatActivity {
                 String correctPassWord = "baby_yoda_ftw";
 
                 if(userName.equals(correctUserName) && passWord.equals(correctPassWord)){
-                    startNewActivity();
+                    startNewActivity(id, userName);
                 } if(!userName.equals("din_djarin")){
                     Toast newToast = Toast.makeText(MainActivity.this, "Wrong Username", Toast.LENGTH_SHORT);
                     newToast.show();
@@ -66,9 +66,10 @@ public class MainActivity extends AppCompatActivity {
 
     }
 
-    public void startNewActivity(){
+    public void startNewActivity(String num, String userName){
         Intent newIntent = new Intent(this, Destination.class);
-        newIntent.putExtra("passedInfo", 1);
+        newIntent.putExtra("passedInfo", num);
+        newIntent.putExtra("userName", userName);
         startActivity(newIntent);
     }
 

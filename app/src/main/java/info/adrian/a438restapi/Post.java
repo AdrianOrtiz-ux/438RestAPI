@@ -3,7 +3,7 @@ package info.adrian.a438restapi;
 import com.google.gson.annotations.SerializedName;
 
 public class Post {
-    private int userId;
+    private String userId;
 
     private int id;
 
@@ -12,7 +12,7 @@ public class Post {
     @SerializedName("body")
     private String text;
 
-    public int getUserId() {
+    public String getUserId() {
         return userId;
     }
 

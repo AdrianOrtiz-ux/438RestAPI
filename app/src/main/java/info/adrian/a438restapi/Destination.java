@@ -21,6 +21,10 @@ import retrofit2.converter.gson.GsonConverterFactory;
 public class Destination extends AppCompatActivity {
 
     private TextView textViewResult;
+    private TextView welcomeMessage;
+
+
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -29,7 +33,8 @@ public class Destination extends AppCompatActivity {
 
 
         Bundle bundle = this.getIntent().getExtras();
-        String checkId = bundle.getString("id");
+        String checkId = bundle.getString("passedInfo");
+        String userName = bundle.getString("userName");
                     Retrofit retroFit = new Retrofit.Builder()
                             .baseUrl("https://jsonplaceholder.typicode.com/")
                             .addConverterFactory(GsonConverterFactory.create())
@@ -49,8 +54,10 @@ public class Destination extends AppCompatActivity {
                             }
 
                             List<Post> posts = response.body();
+                            welcomeMessage = findViewById(R.id.welcome_message);
+                            welcomeMessage.setText("Welcome " + userName);
                             for(Post post:posts){
-                                if(post.getUserId() == 1) {
+                                if(post.getUserId().equals(checkId)) {
                                     String content = "";
                                     content += "ID: " + post.getId() + "\n";
                                     content += "User ID: " + post.getUserId() + "\n";
